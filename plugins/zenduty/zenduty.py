@@ -10,10 +10,10 @@ except ImportError:
     from alerta.app import app  # alerta < 5.0
 
 LOG = logging.getLogger("alerta.plugins.zenduty")
-DASHBOARD_ID= os.environ.get(
-    'DASHBOARD_ID') or app.config['DASHBOARD_ID']
+ZENDUTY_CONNECTION_ID= os.environ.get(
+    'ZENDUTY_CONNECTION_ID') or app.config['ZENDUTY_CONNECTION_ID']
 
-ZENDUTY_EVENTS_URL = f"https://www.zenduty.com/api/appsync/webhook/{DASHBOARD_ID}/"
+ZENDUTY_EVENTS_URL = f"https://www.zenduty.com/api/appsync/webhook/{ZENDUTY_CONNECTION_ID}/"
 
 
 class TriggerEvent(PluginBase):
